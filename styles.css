@@ -1,0 +1,82 @@
+/* ==UserStyle==
+@name           8/22/2022, 12:42:35 PM
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+@-moz-document domain("monkeytype.com") {
+    /*This adds the backgrounds image from a URL*/
+    body {
+        background: /* top, transparent black, faked with gradient */
+        linear-gradient( rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)),
+        /* bottom, image */
+        url(https://cdn.discordapp.com/attachments/858698538585030657/1011437897611759687/unknown.png);
+
+        background-attachment: fixed;
+        background-size: cover;
+        --sub-color: inherit;
+        --main-color: inherit;
+        --bg-color: inherit;
+        --caret-color: inherit;
+        --text-color: inherit;
+        --error-color: inherit;
+    }
+    .word.error {
+        text-shadow: none;
+    }
+    #top {
+        grid-template-columns: 1fr auto 1fr;
+    }
+
+    #top.focus .logo {
+        filter: blur(1.25px);
+    }
+
+    #top .logo .top,
+    #top .logo .text {
+        visibility: hidden;
+    }
+
+    #top .logo .bottom {
+        visibility: hidden;
+        text-shadow: none!important;
+    }
+
+    #top .logo .bottom {
+        visibility: hidden;
+    }
+    #top .logo .text:after {
+        content: '먼키타이프';
+        visibility: visible;
+        display: block;
+        position: relative;
+        margin-top: -30px;
+        font-weight: 600;
+    }
+    #timerNumber {
+        opacity: 10% !important;
+        color: var(--main-color) !important;
+    }
+    #middle {
+        margin-top: 3rem;
+    }
+    /* UNCOMMENT AND CHANGE COLOR TO ADD TEXT BORDERS 
+letter {
+    text-shadow: 0px 0px 3px #FFFFFF;   
+} */
+    /*Hides the elements at the bottom (The Patreon links etc.)*/
+    #bottom {
+        visibility: hidden;
+    }
+    @keyframes fade-away {
+        0% {opacity: 100%}
+        100% {opacity: 0%}
+    }
+    .correct, .incorrect, .error{
+        animation-name: fade-away;
+        animation-duration: 1s;
+        opacity: 0;
+    }
+}
